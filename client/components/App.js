@@ -5,7 +5,7 @@ import axios from 'axios';
 import Add from './Add';
 import Update from './Update';
 import Delete from './Delete';
-import { Tab, Tabs } from 'react-bootstrap';
+import { Tab, Tabs, Glyphicon } from 'react-bootstrap';
 import YearTabsRouter from './tabs/yearTabsRouter';
 import MonthTabs from './tabs/monthTabs';
 export default class App extends React.Component {
@@ -48,8 +48,8 @@ render() {
     return (
       <div>
         <Tabs activeKey={this.state.activeTab} onSelect={this.handleSelect}>
-          <Tab eventKey={2016} title={<YearTabsRouter year='2016' />}><MonthTabs year='2016' monthlyActiveTab={this.state.selectedMonth}/></Tab>
-          <Tab eventKey={2017} title={<YearTabsRouter year='2017' />}><MonthTabs year='2017' monthlyActiveTab={this.state.selectedMonth}/></Tab>
+          <Tab eventKey={2016} title={<YearTabsRouter year='2016'/>}><MonthTabs year='2016' monthlyActiveTab={this.state.selectedMonth}/></Tab>
+          <Tab eventKey={2017} title={<YearTabsRouter year='2017'/>}><MonthTabs year='2017' monthlyActiveTab={this.state.selectedMonth}/></Tab>
           <Tab eventKey={2018} title={<YearTabsRouter year='2018'/>}><MonthTabs year='2018' monthlyActiveTab={this.state.selectedMonth}/></Tab>
           <Tab eventKey={2019} title={<YearTabsRouter year='2019'/>}><MonthTabs year='2019' monthlyActiveTab={this.state.selectedMonth}/></Tab>
           <Tab eventKey={2020} title={<YearTabsRouter year='2020'/>}><MonthTabs year='2020' monthlyActiveTab={this.state.selectedMonth}/></Tab>
@@ -57,7 +57,8 @@ render() {
         <Add selectedMonth={this.state.selectedMonth} selectedYear={this.state.selectedYear} />
         <table>
           <thead>
-            <tr><th></th><th className='desc-col'>Description</th><th className='button-col'>Amount</th><th className='button-col'>Month</th><th className='button-col'>Year</th><th className='button-col'>Update</th><th className='button-col'>Delete</th></tr>
+          {/*[jwc]+1 <tr><th></th><th className='desc-col'>Description</th><th className='button-col'>Amount</th><th className='button-col'>Month</th><th className='button-col'>Year</th><th className='button-col'>Update</th><th className='button-col'>Delete</th></tr> */}
+          <tr><th></th><th className='desc-col'>Description</th><th className='button-col'>Amount</th><th className='button-col'>Month</th><th className='button-col'>Year</th><th className='button-col'></th><th className='button-col'></th></tr>
           </thead>
           <tbody>
             {
