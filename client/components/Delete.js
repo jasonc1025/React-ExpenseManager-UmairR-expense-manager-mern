@@ -33,11 +33,14 @@ delete(e){
       .then(function(response) {
 });
 }
+
 render(){
   return (
-    <Button bsStyle="danger" bsSize="small" onClick={this.onClick}>
-     <Link to={{pathname: '/', search: '?month='+this.state.month+'&year='+this.state.year}} style={{ textDecoration: 'none' }}>
-                  <span className="glyphicon glyphicon-remove"></span>
+    /* [jwc]+1 <Button bsStyle="danger" bsSize="small" onClick={this.onClick}> */
+    <Button bsStyle="warning" bsSize="small" onClick={this.onClick}>
+    <Link to={{pathname: '/', search: '?month='+this.state.month+'&year='+this.state.year}} style={{ textDecoration: 'none' }}>
+          {/* [jwc] Manual override with button-label since 'glyphicon-X' not work */}
+          <span className="glyphicon glyphicon-remove">REMOVE</span>
          </Link>
     </Button>
 )

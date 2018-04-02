@@ -101,15 +101,18 @@ render() {
     if(this.state.messageFromServer == ''){
       return (
         <div>
-          <Button bsStyle="warning" bsSize="small" onClick={this.openModal}><span className="glyphicon glyphicon-edit"></span></Button>
+          {/* [jwc] Manual override with button-label since 'glyphicon-X' not work */}
+          <Button bsStyle="warning" bsSize="small" onClick={this.openModal}><span className="glyphicon glyphicon-edit">EDIT</span></Button>
           <Modal
             isOpen={this.state.modalIsOpen}
             onRequestClose={this.closeModal}
             contentLabel="Add Expense"
             className="Modal">
 <Link to={{pathname: '/', search: '?month='+this.state.month+'&year='+this.state.year }} style={{ textDecoration: 'none' }}>
-            <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span className="closebtn glyphicon glyphicon-remove"></span></Button>
-          </Link><br/>
+            {/* [jwc] Manual override with button-label since 'glyphicon-X' not work */}
+            {/* <Button bsStyle="danger" bsSize="mini" onClick={this.closeModal}><span className="closebtn glyphicon glyphicon-remove">REMOVE</span></Button> */}
+            <Button bsStyle="warning" bsSize="mini" onClick={this.closeModal}><span className="closebtn glyphicon glyphicon-remove">REMOVE</span></Button>
+            </Link><br/>
 <fieldset>
             <label for="description">Description:</label><input type="text" id="description" name="description" value={this.state.description} onChange={this.handleTextChange}></input>
             <label for="amount">Amount:</label><input type="number" id="amount" name="amount" value={this.state.amount} onChange={this.handleTextChange}></input>
@@ -147,7 +150,8 @@ render() {
     else{
       return (
         <div>
-         <Button bsStyle="warning" bsSize="small" onClick={this.openModal}><span className="glyphicon glyphicon-edit"></span></Button>
+         {/* [jwc] Manual override with button-label since 'glyphicon-X' not work */}
+         <Button bsStyle="warning" bsSize="small" onClick={this.openModal}><span className="glyphicon glyphicon-edit"EDIT></span></Button>
          <Modal
            isOpen={this.state.modalIsOpen}
            onAfterOpen={this.afterOpenModal}
