@@ -13,8 +13,10 @@ module.exports = {
    loader: 'babel-loader',
    exclude: /node_modules/,
    query: {
+    // [jwc]+1 presets: ['es2015', 'react']
+    // presets: ["es2015", { "modules": false }]
     presets: ['es2015', 'react']
-   }
+}
   },
   {
    test: /\.css$/,
