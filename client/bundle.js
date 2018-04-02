@@ -10985,9 +10985,11 @@ var YearTabsRouter = function (_React$Component) {
         _reactRouterDom.Link,
         { to: { pathname: '/', search: '?month=All&year=' + this.props.year } },
         _react2.default.createElement(
-          'p',
+          _reactBootstrap.Tab,
           { style: this.state.style },
-          this.props.year
+          '[ ',
+          this.props.year,
+          ' ]'
         )
       );
     }
@@ -32113,16 +32115,8 @@ var App = function (_React$Component) {
                 { className: 'button-col' },
                 'Year'
               ),
-              _react2.default.createElement(
-                'th',
-                { className: 'button-col' },
-                'Update'
-              ),
-              _react2.default.createElement(
-                'th',
-                { className: 'button-col' },
-                'Delete'
-              )
+              _react2.default.createElement('th', { className: 'button-col' }),
+              _react2.default.createElement('th', { className: 'button-col' })
             )
           ),
           _react2.default.createElement(
@@ -33237,7 +33231,11 @@ var Add = function (_React$Component) {
           _react2.default.createElement(
             _reactBootstrap.Button,
             { bsStyle: 'success', bsSize: 'small', onClick: this.openModal },
-            _react2.default.createElement('span', { className: 'glyphicon glyphicon-plus' })
+            _react2.default.createElement(
+              'span',
+              { className: 'glyphicon glyphicon-plus' },
+              'ADD'
+            )
           ),
           _react2.default.createElement(
             _reactModal2.default,
@@ -33251,8 +33249,12 @@ var Add = function (_React$Component) {
               { to: { pathname: '/', search: '?month=' + this.state.month + '&year=' + this.state.year }, style: { textDecoration: 'none' } },
               _react2.default.createElement(
                 _reactBootstrap.Button,
-                { bsStyle: 'danger', bsSize: 'mini', onClick: this.closeModal },
-                _react2.default.createElement('span', { className: 'closebtn glyphicon glyphicon-remove' })
+                { bsStyle: 'warning', bsSize: 'mini', onClick: this.closeModal },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'closebtn glyphicon glyphicon-remove' },
+                  'REMOVE'
+                )
               )
             ),
             _react2.default.createElement('br', null),
@@ -33356,12 +33358,12 @@ var Add = function (_React$Component) {
                 _react2.default.createElement(
                   'option',
                   { value: '2016', id: '17' },
-                  '2016'
+                  '2016*'
                 ),
                 _react2.default.createElement(
                   'option',
                   { value: '2017', id: '17' },
-                  '2017'
+                  '2017*'
                 ),
                 _react2.default.createElement(
                   'option',
@@ -33399,7 +33401,11 @@ var Add = function (_React$Component) {
           _react2.default.createElement(
             _reactBootstrap.Button,
             { bsStyle: 'success', bsSize: 'small', onClick: this.openModal },
-            _react2.default.createElement('span', { className: 'glyphicon glyphicon-plus' })
+            _react2.default.createElement(
+              'span',
+              { className: 'glyphicon glyphicon-plus' },
+              'ADD'
+            )
           ),
           _react2.default.createElement(
             _reactModal2.default,
@@ -45962,7 +45968,11 @@ var Update = function (_React$Component) {
           _react2.default.createElement(
             _reactBootstrap.Button,
             { bsStyle: 'warning', bsSize: 'small', onClick: this.openModal },
-            _react2.default.createElement('span', { className: 'glyphicon glyphicon-edit' })
+            _react2.default.createElement(
+              'span',
+              { className: 'glyphicon glyphicon-edit' },
+              'EDIT'
+            )
           ),
           _react2.default.createElement(
             _reactModal2.default,
@@ -45976,8 +45986,12 @@ var Update = function (_React$Component) {
               { to: { pathname: '/', search: '?month=' + this.state.month + '&year=' + this.state.year }, style: { textDecoration: 'none' } },
               _react2.default.createElement(
                 _reactBootstrap.Button,
-                { bsStyle: 'danger', bsSize: 'mini', onClick: this.closeModal },
-                _react2.default.createElement('span', { className: 'closebtn glyphicon glyphicon-remove' })
+                { bsStyle: 'warning', bsSize: 'mini', onClick: this.closeModal },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'closebtn glyphicon glyphicon-remove' },
+                  'REMOVE'
+                )
               )
             ),
             _react2.default.createElement('br', null),
@@ -46124,7 +46138,7 @@ var Update = function (_React$Component) {
           _react2.default.createElement(
             _reactBootstrap.Button,
             { bsStyle: 'warning', bsSize: 'small', onClick: this.openModal },
-            _react2.default.createElement('span', { className: 'glyphicon glyphicon-edit' })
+            _react2.default.createElement('span', { className: 'glyphicon glyphicon-edit', EDIT: true })
           ),
           _react2.default.createElement(
             _reactModal2.default,
@@ -46246,13 +46260,20 @@ var Delete = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(
-        _reactBootstrap.Button,
-        { bsStyle: 'danger', bsSize: 'small', onClick: this.onClick },
+      return (
+        /* [jwc]+1 <Button bsStyle="danger" bsSize="small" onClick={this.onClick}> */
         _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: { pathname: '/', search: '?month=' + this.state.month + '&year=' + this.state.year }, style: { textDecoration: 'none' } },
-          _react2.default.createElement('span', { className: 'glyphicon glyphicon-remove' })
+          _reactBootstrap.Button,
+          { bsStyle: 'warning', bsSize: 'small', onClick: this.onClick },
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: { pathname: '/', search: '?month=' + this.state.month + '&year=' + this.state.year }, style: { textDecoration: 'none' } },
+            _react2.default.createElement(
+              'span',
+              { className: 'glyphicon glyphicon-remove' },
+              'REMOVE'
+            )
+          )
         )
       );
     }
